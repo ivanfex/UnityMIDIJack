@@ -35,7 +35,7 @@ public class MIDIListenerHub : MonoBehaviour
 
             if (isKeyDown)
             {
-                midiNotes.Add(new MIDINoteMessage(NoteMidiMapper(i), OctaveMidiMapper(i), keyDownVelocity);
+                midiNotes.Add(new MIDINoteMessage(NoteMidiMapper(i), OctaveMidiMapper(i), keyDownVelocity));
             }
         }
 
