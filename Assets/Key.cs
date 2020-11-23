@@ -8,6 +8,7 @@ public class Key : MonoBehaviour
     Vector3 targetPosition;
     [SerializeField] float speed = 1f;
     bool pressed = false;
+    float keyVelocity = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +20,13 @@ public class Key : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float step = speed * Time.deltaTime; // calculate distance to move
+        float step = speed * Time.deltaTime * keyVelocity; // calculate distance to move
         if(pressed)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
             if(transform.position == targetPosition)
             {
                 pressed = false;
-                print("Bottomed");
             }
         }
         else
@@ -35,8 +35,16 @@ public class Key : MonoBehaviour
         }            
     }
 
-    public void PressKey()
+    public void PressKey(float pressVelocity)
     {
         pressed = true;
+        //print($"Pressed at: {pressVelocity}");
+        if(pressVelocity < 0.3f)
+        {
+            keyVelocity = 0.3f;
+        } else
+        {
+            keyVelocity = pressVelocity;
+        }
     }
 }
