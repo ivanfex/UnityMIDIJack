@@ -10,7 +10,7 @@ public class MIDIListenerHub : MonoBehaviour
         MidiJack.MidiChannel.Ch5, MidiJack.MidiChannel.Ch6, MidiJack.MidiChannel.Ch7
     };
 
-    struct MIDINoteMessage
+    public struct MIDINoteMessage
     {
         public string note;
         public int octave;
@@ -24,7 +24,7 @@ public class MIDIListenerHub : MonoBehaviour
         }
     }
 
-    List<MIDINoteMessage> MidiChannelRead(int channel)
+    public List<MIDINoteMessage> MidiChannelRead(int channel)
     {
         List<MIDINoteMessage> midiNotes = new List<MIDINoteMessage>();
 

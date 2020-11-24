@@ -15,17 +15,13 @@ public class MIDIListener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //print(MidiJack.MidiMaster.GetKeyDown(80));
         for (int i = 1; i < 127; i++)
         {
-            //bool isKeyDown = MidiJack.MidiMaster.GetKeyDown(i);
             float keyDownSpeed = MidiJack.MidiMaster.GetKey(MidiJack.MidiChannel.Ch1, i);
             bool isKeyDown = keyDownSpeed > 0;
-            //print()
+
             if (isKeyDown)
             {
-                //print($"{i} {isKeyDown}");
-                //print(NoteOctaveMidiMapper(i));
                 Transform pianoKey = piano.Find(NoteMidiMapper(i));
                 if(pianoKey != null)
                 {

@@ -39,5 +39,4 @@ public class MIDIListenerHost : MonoBehaviour
     {
         return (midiNoteNumber / 12) - 1;
     }
-
 }
