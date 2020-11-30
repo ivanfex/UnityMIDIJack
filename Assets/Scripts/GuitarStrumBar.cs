@@ -5,7 +5,7 @@ using UnityEngine;
 public class GuitarStrumBar : MonoBehaviour
 {
     [SerializeField] Transform targetRotation;
-    [SerializeField] bool pressed = true;
+    [SerializeField] bool pressed = false;
     [SerializeField] float strumVelocity = 70f;
     GameObject startingObj;
     // Start is called before the first frame update
@@ -23,11 +23,8 @@ public class GuitarStrumBar : MonoBehaviour
         if(pressed)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation.rotation, step);
-            float diffInRotation = Mathf.Abs(transform.rotation.x - targetRotation.rotation.x);
-            print(diffInRotation);
             if(transform.rotation.x == targetRotation.rotation.x)
             {
-                print("Match");
                 pressed = false;
             }
         } 

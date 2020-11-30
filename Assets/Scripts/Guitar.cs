@@ -13,7 +13,7 @@ public class Guitar : MonoBehaviour
         List<MIDIListenerHub.MIDINoteMessage> midiNotes = midiHub.MidiChannelRead(1);
         foreach (MIDIListenerHub.MIDINoteMessage midiNote in midiNotes)
         {
-            print($"Guitar Note: {midiNote.note} Octave: {midiNote.octave} Vel: {midiNote.velocity} {midiNote.note}Button");
+            //print($"Guitar Note: {midiNote.note} Octave: {midiNote.octave} Vel: {midiNote.velocity} {midiNote.note}Button");
             Transform guitarKey = transform.Find($"{midiNote.note}Button");
             if (guitarKey != null)
             {
