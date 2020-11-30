@@ -248,7 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRotation: {fileID: 552395306}
   pressed: 1
-  strumVelocity: 50
+  strumVelocity: 400
 --- !u!1 &83479244
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   midiHub: {fileID: 132645352}
+  strumBar: {fileID: 8477596}
 --- !u!4 &91219994 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0e3049016d9bc7c4a92506e6c47e207d,

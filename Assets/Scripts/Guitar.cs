@@ -5,6 +5,7 @@ using UnityEngine;
 public class Guitar : MonoBehaviour
 {
     [SerializeField] MIDIListenerHub midiHub;
+    [SerializeField] GuitarStrumBar strumBar;
 
     // Update is called once per frame
     void Update()
@@ -18,6 +19,8 @@ public class Guitar : MonoBehaviour
             {
                 GuitarKey key = guitarKey.GetComponent<GuitarKey>();
                 key.PressKey(midiNote.velocity);
+
+                strumBar.Strum();
             }
         }
     }

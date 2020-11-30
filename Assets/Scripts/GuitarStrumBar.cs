@@ -6,8 +6,7 @@ public class GuitarStrumBar : MonoBehaviour
 {
     [SerializeField] Transform targetRotation;
     [SerializeField] bool pressed = true;
-    [SerializeField] float strumVelocity = 50f;
-    float timeCount = 0.0f;
+    [SerializeField] float strumVelocity = 70f;
     GameObject startingObj;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +25,6 @@ public class GuitarStrumBar : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation.rotation, step);
             float diffInRotation = Mathf.Abs(transform.rotation.x - targetRotation.rotation.x);
             print(diffInRotation);
-            //if(transform.rotation == targetRotation.rotation)
             if(transform.rotation.x == targetRotation.rotation.x)
             {
                 print("Match");
@@ -37,5 +35,10 @@ public class GuitarStrumBar : MonoBehaviour
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, startingObj.transform.rotation, step);
         }
+    }
+
+    public void Strum()
+    {
+        pressed = true;
     }
 }
