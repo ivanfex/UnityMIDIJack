@@ -11,12 +11,6 @@ public class Drum : MonoBehaviour
     [SerializeField] DrumGrow hiHatTop;
     [SerializeField] DrumGrow kickStar;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        print("Started!");
-    }
-
     // Update is called once per frame
     void Update()
     {

@@ -10,7 +10,7 @@ public class Guitar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        List<MIDIListenerHub.MIDINoteMessage> midiNotes = midiHub.MidiChannelRead(1);
+        List<MIDIListenerHub.MIDINoteMessage> midiNotes = midiHub.MidiChannelRead(2);
         foreach (MIDIListenerHub.MIDINoteMessage midiNote in midiNotes)
         {
             //print($"Guitar Note: {midiNote.note} Octave: {midiNote.octave} Vel: {midiNote.velocity} {midiNote.note}Button");

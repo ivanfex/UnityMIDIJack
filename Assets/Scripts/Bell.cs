@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrumStick : MonoBehaviour
+public class Bell : MonoBehaviour
 {
-    [SerializeField] Transform targetRotation;
+    [SerializeField] Transform targetPosition;
+
     public bool hit = true;
     [SerializeField] float hitVelocity = 50f;
     GameObject startingObj;
     public bool atStart = true;
+
     // Start is called before the first frame update
     void Start()
     {
-        startingObj = new GameObject("StickHelper");
+        startingObj = new GameObject("BellHelper");
         Instantiate(startingObj);
         startingObj.transform.position = transform.position;
         startingObj.transform.rotation = transform.rotation;
@@ -25,12 +27,13 @@ public class DrumStick : MonoBehaviour
         if(hit)
         {
             atStart = false;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation.rotation, step);
-            if (transform.rotation.x == targetRotation.rotation.x)
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetPosition.rotation, step);
+            print(Mathf.Abs(transform.rotation.x - targetPosition.rotation.x));
+            if (Mathf.Abs(transform.rotation.x - targetPosition.rotation.x) < 0.0001f)
             {
                 hit = false;
             }
-        } 
+        }
         else
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, startingObj.transform.rotation, step);
