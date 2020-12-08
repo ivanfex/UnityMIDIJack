@@ -28,7 +28,7 @@ public class Bell : MonoBehaviour
         {
             atStart = false;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetPosition.rotation, step);
-            print(Mathf.Abs(transform.rotation.x - targetPosition.rotation.x));
+
             if (Mathf.Abs(transform.rotation.x - targetPosition.rotation.x) < 0.0001f)
             {
                 hit = false;

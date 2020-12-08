@@ -6,6 +6,7 @@ public class GuitarStrumBar : MonoBehaviour
 {
     [SerializeField] Transform targetRotation;
     [SerializeField] bool pressed = false;
+    public bool atStart = true;
     [SerializeField] float strumVelocity = 70f;
     GameObject startingObj;
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class GuitarStrumBar : MonoBehaviour
         float step = strumVelocity * Time.deltaTime;
         if(pressed)
         {
+            atStart = false;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation.rotation, step);
             if(transform.rotation.x == targetRotation.rotation.x)
             {
@@ -31,6 +33,11 @@ public class GuitarStrumBar : MonoBehaviour
         else
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, startingObj.transform.rotation, step);
+
+            if (Mathf.Abs(transform.rotation.x - startingObj.transform.rotation.x) < 0.01f)
+            {
+                atStart = true;
+            }
         }
     }
 

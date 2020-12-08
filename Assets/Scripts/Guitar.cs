@@ -20,7 +20,10 @@ public class Guitar : MonoBehaviour
                 GuitarKey key = guitarKey.GetComponent<GuitarKey>();
                 key.PressKey(midiNote.velocity);
 
-                strumBar.Strum();
+                if (strumBar.atStart)
+                {
+                    strumBar.Strum();
+                }
             }
         }
     }
